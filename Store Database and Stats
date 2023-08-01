@@ -1,0 +1,20 @@
+CREATE TABLE shirts (id INTEGER PRIMARY KEY, sleeve_length TEXT, color TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO shirts VALUES(1, "short", "red", 4, 5.99);
+INSERT INTO shirts VALUES(2, "short", "white", 5, 6.50);
+INSERT INTO shirts VALUES(3, "short", "blue", 7, 5.99);
+INSERT INTO shirts VALUES(4, "short", "green", 2, 6.99);
+INSERT INTO shirts VALUES(5, "short", "orange", 6, 5.50);
+INSERT INTO shirts VALUES(6, "short", "purple", 6, 6.99);
+INSERT INTO shirts VALUES(7, "short", "black", 4, 7.00);
+INSERT INTO shirts VALUES(8, "short", "gray", 3, 6.50);
+INSERT INTO shirts VALUES(9, "long", "red", 7, 7.99);
+INSERT INTO shirts VALUES(10, "long", "white", 4, 8.50);
+INSERT INTO shirts VALUES(11, "long", "blue", 3, 7.99);
+INSERT INTO shirts VALUES(12, "long", "green", 6, 8.99);
+INSERT INTO shirts VALUES(13, "long", "orange", 3, 7.50);
+INSERT INTO shirts VALUES(14, "long", "purple", 7, 8.99);
+INSERT INTO shirts VALUES(15, "long", "black", 2, 9.00);
+INSERT INTO shirts VALUES(16, "long", "gray", 7, 8.50);
+SELECT * FROM shirts ORDER BY price asc;
+SELECT sum(quantity) FROM shirts WHERE color="red"
