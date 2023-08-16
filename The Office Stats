@@ -1,0 +1,94 @@
+CREATE TABLE jobs (id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+job_title TEXT);
+
+INSERT INTO jobs  (name, job_title) VALUES ("Michael Scott", "Regional Manager");
+INSERT INTO jobs (name, job_title) VALUES ("Jim Halpert", "Salesman");
+INSERT INTO jobs (name, job_title) VALUES ("Pam Beesley", "Receptionist");
+INSERT INTO jobs (name, job_title) VALUES ("Dwight Schrute", "Assistant to the Regional Manager");
+INSERT INTO jobs (name, job_title) VALUES ("Andy Bernard", "Salesman");
+INSERT INTO jobs (name, job_title) VALUES ("Angela Martin", "Accountant");
+INSERT INTO jobs (name, job_title) VALUES ("Erin Hannon", "Receptionist");
+INSERT INTO jobs (name, job_title) VALUES ("Stanley Hudson", "Salesman");
+INSERT INTO jobs (name, job_title) VALUES ("Phyllis Vance", "Saleswoman");
+INSERT INTO jobs (name, job_title) VALUES ( "Ryan Howard", "The Temp");
+INSERT INTO jobs (name, job_title) VALUES ("Jan Levinson", "Corporate Supervisor");
+INSERT INTO jobs (name, job_title) VALUES ( "Gabe Lewis", "Corporate Supervisor");
+INSERT INTO jobs (name, job_title) VALUES ("Oscar Martinez", "Accountant");
+INSERT INTO jobs (name, job_title) VALUES ("Kevin Malone", "Accountant");
+INSERT INTO jobs (name, job_title) VALUES ("Roy Anderson", "Warehouse Worker");
+INSERT INTO jobs (name, job_title) VALUES ("Karen Filippelli", "Saleswoman");
+INSERT INTO jobs (name, job_title) VALUES ("Meredith Palmer", "Supplier Relations Rep");
+INSERT INTO jobs (name, job_title) VALUES ("Toby Flenderson", "Human Resources Rep");
+INSERT INTO jobs (name, job_title) VALUES ("Creed Bratton", "Quality Assurance Rep");
+INSERT INTO jobs (name, job_title) VALUES ("Darryl Philbin", "Warehouse Foreman");
+INSERT INTO jobs (name, job_title) VALUES ("Holly Flax", "Human Resources Rep");
+INSERT INTO jobs (name, job_title) VALUES ("Kelly Kapoor", "Customer Service Rep");
+
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, hobby TEXT);
+
+INSERT INTO hobbies (id, person_id, hobby) VALUES (1, 1, "dancing");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (2, 1, "hockey");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (3, 2, "basketball");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (4, 2, "pranks");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (5, 3, "drawing");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (6, 3, "pranks");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (7, 3, "finer things");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (8, 4, "martial arts");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (9, 4, "justice");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (10, 5, "singing");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (11, 5, "acting");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (12, 5, "music");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (13, 6, "cats");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (14, 7, "fashion");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (15, 7, "dancing");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (16, 9, "knitting");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (17, 9, "basketball");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (18, 11, "candles");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (19, 13, "finer things");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (20, 14, "basketball");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (21, 14, "music");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (22, 15, "jetskiing");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (23, 17, "drinking");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (24, 19, "music");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (25, 18, "finer things");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (26, 22, "fashion");
+INSERT INTO hobbies (id, person_id, hobby) VALUES (27, 22, "singing");  
+
+CREATE TABLE relationships (id INTEGER PRIMARY KEY AUTOINCREMENT, partner_1 INTEGER, partner_2 INTEGER);
+
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (1, 1, 11);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (2, 1, 21);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (3, 2, 3);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (4, 2, 16);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (5, 3, 2);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (6, 3, 15);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (7, 4, 6);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (8, 5, 6);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (9, 5, 7);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (10, 6, 4);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (11, 6, 5);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (12, 7, 5);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (13, 7, 12);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (14, 10, 22);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (15, 11, 1);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (16, 12, 7);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (17, 15, 3);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (18, 16, 2);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (19, 20, 22);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (20, 21, 1);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (21, 22, 10);
+INSERT INTO relationships (id, partner_1, partner_2) VALUES (22, 22, 20);   
+
+SELECT * FROM jobs;
+
+SELECT name, job_title FROM jobs ORDER BY job_title;
+
+SELECT jobs.name, hobbies.hobby FROM jobs INNER JOIN hobbies ON jobs.id=hobbies.person_id WHERE hobby="finer things";
+
+SELECT jobs.name, hobbies.hobby FROM jobs INNER JOIN hobbies ON jobs.id=hobbies.person_id WHERE hobby="basketball";
+
+SELECT a.name AS "Partner A", b.name AS "Soupsnake" FROM relationships JOIN jobs a ON a.id=relationships.partner_1
+JOIN jobs b ON b.id=relationships.partner_2;
+
