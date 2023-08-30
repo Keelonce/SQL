@@ -51,3 +51,7 @@ WHERE quantity>2
 AND length(feb.orderid) =6
 AND feb.orderid<>'Order ID'
 
+SELECT product, sum(quantity), location
+FROM bit_db.febsales FEB
+WHERE location LIKE '%Los Angeles%'
+GROUP BY product;
