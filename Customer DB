@@ -55,3 +55,34 @@ SELECT product, sum(quantity), location
 FROM bit_db.febsales FEB
 WHERE location LIKE '%Los Angeles%'
 GROUP BY product;
+
+SELECT location, count(orderID) AS order_count
+FROM bit_db.jansales jan
+GROUP BY location
+HAVING location LIKE '%New York%'
+AND order_count > 2;
+
+SELECT product, sum(quantity) AS quantity
+FROM bit_db.febsales feb
+WHERE product LIKE '%headphones'
+GROUP BY product;
+
+SELECT ROUND(sum(quantity*price)/count(cust.acctnum)) AS AVG_Spent
+FROM BIT_DB.FebSales Feb
+LEFT JOIN BIT_DB.customers cust
+ON FEB.orderid=cust.order_id
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID'
+
+SELECT sum(quantity)/(count(cust.acctnum))
+FROM BIT_DB.FebSales Feb
+LEFT JOIN BIT_DB.customers cust
+ON FEB.orderid=cust.order_id
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID'
+
+SELECT product, sum(quantity*price) AS revenue
+FROM BIT_DB.JanSales Jan
+GROUP BY product
+ORDER BY revenue desc
+LIMIT 1;
